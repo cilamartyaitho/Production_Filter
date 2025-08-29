@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Production Data Viewer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>Production Data Viewer</h1>
+
+  <label for="month">Enter Month (e.g., April):</label>
+  <input type="text" id="month" placeholder="e.g. April" />
+
+  <label for="startDate">Start Date (DD-MM-YYYY):</label>
+  <input type="text" id="startDate" placeholder="e.g. 01-04-2025" />
+
+  <label for="endDate">End Date (optional):</label>
+  <input type="text" id="endDate" placeholder="e.g. 10-04-2025" />
+
+  <button onclick="loadAndFilterData()">Load Data</button>
+
+  <div id="output"></div>
+  <button id="exportBtn" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+
+
+<script src="lib/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
