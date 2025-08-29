@@ -53,7 +53,7 @@ async function loadAndFilterData() {
     const arrayBuffer = await response.arrayBuffer();
     const workbook = XLSX.read(arrayBuffer, { type: "array", cellDates: true });
 
-    const sheetName = "Sheet1";
+    const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
 
     if (!sheet) {
