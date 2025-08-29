@@ -31,7 +31,7 @@ function formatDateToDDMMYYYY(date) {
 }
 
 async function loadAndFilterData() {
-  const monthInput = document.getElementById('month').value.trim().toUpperCase();
+  const monthInput = document.getElementById('month').value.trim();
   const startDateStr = document.getElementById('startDate').value.trim();
   const endDateStr = document.getElementById('endDate').value.trim();
   const output = document.getElementById('output');
