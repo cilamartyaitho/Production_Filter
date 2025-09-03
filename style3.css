@@ -12,6 +12,28 @@ label {
   color: #f1f1f1;
 }
 
+form {
+  padding: 8px 10px;
+  width: 260px;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #444;
+  border-radius: 4px;
+  margin-top: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select{
+  padding: 8px 10px;
+  width: 260px;
+  background-color: #1e1e1e;
+  color: #fff5f5;
+  border: 1px solid #535252;
+  border-radius: 4px;
+  margin-top: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
 input {
   padding: 8px 10px;
   width: 260px;
