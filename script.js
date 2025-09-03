@@ -170,8 +170,8 @@ const endDateEl = document.getElementById("endDatecalender");
 })();
 
 function restrictDatePickers(year, month) {
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
+  const firstDay = new Date(year, month,2);
+  const lastDay = new Date(year, month+1, 1);
 
   const minDate = firstDay.toISOString().split("T")[0];
   const maxDate = lastDay.toISOString().split("T")[0];
