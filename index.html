@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +9,28 @@
 </head>
 <body>
   <h1>Production Data Viewer</h1>
+  
 
-  <label for="month">Enter Month (e.g., April):</label>
-  <form>
-      <select id="selectmonth" name="month">
-        <option>January</option>
-        <option>February</option>
-        <option>March</option>
-        <option>April</option>
-        <option>May</option>
-        <option>June</option>
-        <option>July</option>
-        <option>August</option>
-        <option>September</option>
-        <option>October</option>
-        <option>November</option>
-        <option>December</option>
-      </select>
-  </form>
+  <label for = "selectmonth">Select Month (e.g April)</label>
+  <select id="selectmonth"></select>
+  <script>
+    const months = ["January","February","March",
+    "April","May","June","July","August","September",
+    "October","November","December"] ;
+
+    const monthselect = document.getElementById("selectmonth");
+    const currentmonth = new Date().getMonth();
+
+    months.forEach((month, index) => {
+    const option = document.createElement("option");
+    option.value = index + 1; 
+    option.textContent = month;
+    if (index === currentmonth) {
+      option.selected = true;
+    }
+    monthselect.appendChild(option);
+  });
+  </script>
   
   <label id="startDatelebel" for="startDatecalender">Start Date (DD-MM-YYYY):</label>
   <input type="date" id="startDatecalender" placeholder="e.g. 01-04-2025" />
