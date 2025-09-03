@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Production Data Viewer</title>
+  <link rel="stylesheet" href="style3.css"/>
+</head>
+<body>
+  <h1>Production Data Viewer</h1>
+  
+
+  <label for = "selectmonth">Select Month (e.g April)</label>
+  <select id="selectmonth"></select>
+  <script>
+    const months = ["January","February","March",
+    "April","May","June","July","August","September",
+    "October","November","December"] ;
+
+    const monthselect = document.getElementById("selectmonth");
+    const currentmonth = new Date().getMonth();
+
+    months.forEach((month, index) => {
+    const option = document.createElement("option");
+    option.value = index + 1; 
+    option.textContent = month;
+    if (index === currentmonth) {
+      option.selected = true;
+    }
+    monthselect.appendChild(option);
+  });
+  </script>
+  
+  <label id="startDatelebel" for="startDatecalender">Start Date (DD-MM-YYYY):</label>
+  <input type="date" id="startDatecalender" placeholder="e.g. 01-04-2025" />
+
+
+  <label id="endDatelebel" for="endDatecalender">End Date (optional):</label>
+  <input type="date" id="endDatecalender" placeholder="e.g. 10-04-2025" />
+
+  <button onclick="loadAndFilterData()">Load Data</button>
+
+  <div id="output"></div>
+  <button id="exportBtn" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+
+
+<script src="lib/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
