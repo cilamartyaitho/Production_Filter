@@ -14,6 +14,7 @@ function parseUserDateInput(d) {
     return new Date(`${parts[0]}-${parts[1]}-${parts[2]}`);
   } else {
     return new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+
   }
 }
 
@@ -40,7 +41,6 @@ async function loadAndFilterData() {
   exportBtn.style.display = "none"; 
   filteredDataForExport = [];
   FileName = monthInput;
-
   if (!monthInput || !startDateStr) {
     alert("Please enter both month and start date.");
     return;
