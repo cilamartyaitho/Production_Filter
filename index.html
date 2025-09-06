@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="style3.css"/>
 </head>
 <body>
-  <h1>Production Data Viewer</h1>
-  
+  <h1 class="header_css">Production Data Viewer</h1>
+
   <label for="selectmonth">Select Month</label>
   <select id="selectmonth"></select>
 
@@ -18,12 +18,38 @@
   <label for="endDatecalender">End Date (optional):</label>
   <input type="text" id="endDatecalender" placeholder="DD-MM-YYYY" />
 
-  <button onclick="loadAndFilterData()">Load Data</button>
-  <div id="output"></div>
+  <div style="margin-top: 20px;">
+    <button onclick="loadAndFilterDataWrapper()">Load Data</button>
+    <button onclick="initSalableProductionWrapper()">Salable Production</button>
+  </div>
 
-  <button id="exportBtn" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+  <div id="defaultOutputView" style="display: block;">
+    <div id="output"></div>
+    <button id="exportBtn" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+  </div>
+
+  <div id="salableOutputView" style="display: none;">
+    <div id="salableOutput"></div>
+    <button id="salableExportBtn" style="display:none;">Export Salable Data</button>
+  </div>
 
   <script src="lib/xlsx.full.min.js"></script>
+
   <script src="script.js"></script>
+  <script src="script2.js"></script>
+
+  <script>
+    function loadAndFilterDataWrapper() {
+      document.getElementById("defaultOutputView").style.display = "block";
+      document.getElementById("salableOutputView").style.display = "none";
+      loadAndFilterData();
+    }
+
+    function initSalableProductionWrapper() {
+      document.getElementById("defaultOutputView").style.display = "none";
+      document.getElementById("salableOutputView").style.display = "block";
+      initSalableProduction();
+    }
+  </script>
 </body>
 </html>
