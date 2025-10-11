@@ -142,7 +142,6 @@ function generateHTMLTable(data) {
     columns.forEach(col => {
       let cell = row[col];
 
-      // Force 3 decimal places for numbers
       if (typeof cell === "number") {
         cell = cell.toFixed(3);
       }

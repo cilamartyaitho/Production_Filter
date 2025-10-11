@@ -19,8 +19,19 @@
   <input type="text" id="endDatecalender" placeholder="DD-MM-YYYY" />
 
   <div style="margin-top: 20px;">
-    <button onclick="loadAndFilterDataWrapper()">Load Data</button>
-    <button onclick="initSalableProductionWrapper()">Salable Production</button>
+    <button id="productwise" class="productwise">Product Wise</button>
+    <button style ="margin-left: 70px;" onclick="loadAndFilterDataWrapper()">Load Data</button>
+    <button style ="margin-left: 70px;" onclick="initSalableProductionWrapper()">Salable Production</button>
+    
+
+    <div id="productButtons" class="productButtons" style="display: none; margin-top: 10px;">
+    <button onclick="showSpinningProd()">Spinning Prod</button>
+    <button onclick="showTwistingProd()">Twisting Prod</button>
+    <button onclick="showWeavingProd()">Weaving Prod</button>
+    <button onclick="showSpoolWinding()">Spool Winding Stock</button>
+    <button onclick="showCopWinding()">Cop Winding Stock</button>
+  </div>
+
   </div>
 
   <div id="defaultOutputView" style="display: block;">
@@ -37,6 +48,8 @@
 
   <script src="script.js"></script>
   <script src="script2.js"></script>
+  <!--<script src="script3.js"></script>-->
+  <script src = "final_script.js"></script>
 
   <script>
     function loadAndFilterDataWrapper() {
@@ -50,6 +63,35 @@
       document.getElementById("salableOutputView").style.display = "block";
       initSalableProduction();
     }
+
+    document.getElementById("productwise").addEventListener("mouseenter", () => {
+      const productButtons = document.getElementById("productButtons");
+      productButtons.style.display = "flex";
+
+      const buttons = productButtons.querySelectorAll("button");
+      buttons.forEach((btn, index) => {
+        btn.style.animation = "none";
+        setTimeout(() => {
+          btn.style.animation = `fadeInButton 0.4s ease forwards`;
+          btn.style.animationDelay = `${index * 0.15}s`;
+        }, 10);
+      });
+    });
+
+    document.getElementById("productwise").addEventListener("mouseleave", (e) => {
+      const productButtons = document.getElementById("productButtons");
+      setTimeout(() => {
+        if (!productButtons.matches(':hover')) {
+          productButtons.style.display = "none";
+        }
+      }, 50);
+    });
+
+    document.getElementById("productButtons").addEventListener("mouseleave", () => {
+      document.getElementById("productButtons").style.display = "none";
+    });
+
+
   </script>
 </body>
 </html>
